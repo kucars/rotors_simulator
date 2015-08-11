@@ -4,14 +4,19 @@
     <include>
       <uri>model://ground_plane_residential</uri>
     </include>
-    <include> <!-- optional house model -->
-      <uri>model://fast_food</uri>
+   <!-- <include> --><!-- optional house model -->
+    <!--  <uri>model://fast_food</uri>
         <pose>-2 5 0 0 0 0</pose>
-   </include>
-     <include> <!-- optional house model -->
-      <uri>model://house_2</uri>
+   </include>-->
+     <!--<include> --><!-- optional house model -->
+     <!-- <uri>model://house_2</uri>
         <pose>-10 0 0 0 0 -1.57</pose>
-   </include>
+   </include>-->
+    
+   <!--  <include>--> <!-- optional house model -->
+<!--   <uri>model://house_2</uri>
+        <pose>5 0 0 0 0 1.57</pose>
+   </include>-->
   <!--  <include>
       <uri>model://sun</uri>
     </include>-->
@@ -31,7 +36,7 @@
     <model name='aircraft'>
       <link name='link'>
         <collision name='collision'>
-          <pose>0 50 0 0 0 0</pose>
+          <pose>-18.5 22 0 0 0 -0.785</pose>
           <geometry>
             <mesh>
               <uri>model://aircraft/airbus.dae</uri>
@@ -40,7 +45,7 @@
           </geometry>
         </collision>
         <visual name='visual'>
-          <pose>0 50 0 0 0 0</pose>
+          <pose>-18.5 22 0 0 0 -0.785</pose>
           <geometry>
             <mesh>
               <uri>model://aircraft/airbus.dae</uri>
@@ -49,7 +54,7 @@
           </geometry>
         </visual>
       </link>
-      <pose>0 50 0 0 0 0</pose>
+      <pose>-18.5 22 0 0 0 -0.785</pose>
       <static>1</static>
     </model>
     <physics type='ode'>
