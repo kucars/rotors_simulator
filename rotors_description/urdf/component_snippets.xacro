@@ -871,7 +871,8 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_hokuyo_laser" filename="libgazebo_ros_laser.so">
-        <topicName>laser/scan</topicName>
+        <robotNamespace>${namespace}</robotNamespace>
+        <topicName>${namespace}/laser/scan</topicName>
         <frameName>${namespace}/hokuyo_laser_link</frameName>
       </plugin>
     </sensor>
