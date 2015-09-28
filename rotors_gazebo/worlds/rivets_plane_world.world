@@ -17,6 +17,19 @@
       </attenuation>
       <direction>0.5 0.1 -0.9</direction>
     </light>
+    <light name='user_point_light_1' type='point'>
+      <pose>-1.62095 2.71084 6.85051 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>0</cast_shadows>
+      <direction>0 0 -1</direction>
+    </light>
     <model name='rivets_surface'>
       <link name='link'>
         <collision name='collision'>
