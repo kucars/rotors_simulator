@@ -25,12 +25,12 @@
   <xacro:include filename="$(find rotors_description)/urdf/iris_generic_odometry_sensor.gazebo" />
 
   <!-- Mount a laser-sensor in front of the Firefly. -->
-<!--  <xacro:laser_macro
-    namespace="${namespace}/laser"
+  <xacro:hokuyo_laser
+    namespace="${namespace}"
     parent_link="base_link"
   >
-    <origin xyz="0.0 0.0 0.08" rpy="0.0 0.0 0.0" />
-  </xacro:laser_macro>-->
+    <origin xyz="0.0 0.0 0.075" rpy="0.0 0.0 0.0" />
+  </xacro:hokuyo_laser>
   
    <!-- Mount a Xtion sensor under IRIS  -->
   <xacro:sensor_asus_xtion_macro
