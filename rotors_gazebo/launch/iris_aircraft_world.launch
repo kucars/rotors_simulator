@@ -9,7 +9,7 @@
   
   <env name="GAZEBO_MODEL_PATH" value="$(find rotors_gazebo)/models"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find rotors_gazebo)/worlds/aircraft_world.world"/>
+    <arg name="world_name" value="$(find rotors_gazebo)/worlds/aircraft_world_big.world"/>
     <!-- <arg name="debug" value="true" /> -->
     <arg name="headless" value="$(arg headless)"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -22,6 +22,8 @@
         <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
         <arg name="log_file" value="$(arg log_file)"/>
 	<arg name="Y" value="3.14"/>
+	<arg name="y" value="-11.5"/>
+	<arg name="x" value="-7"/>
       </include>
     </group>
 </launch>
