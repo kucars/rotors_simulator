@@ -25,12 +25,12 @@
   <xacro:include filename="$(find rotors_description)/urdf/iris_generic_odometry_sensor.gazebo" />
 
   <!-- Mount a laser-sensor above the iris. -->
- <!-- <xacro:hokuyo_laser
+  <xacro:hokuyo_laser
     namespace="${namespace}"
     parent_link="base_link"
   >
     <origin xyz="0.0 0.0 0.075" rpy="0.0 0.0 0.0" />
-  </xacro:hokuyo_laser>-->
+  </xacro:hokuyo_laser>
   
    <!-- Mount a Xtion sensor under IRIS  -->
   <xacro:sensor_asus_xtion_macro
@@ -42,13 +42,13 @@
   </xacro:sensor_asus_xtion_macro>
 
      <!-- Mount a Camera sensor above IRIS  -->
-  <xacro:sensor_camera_macro
+ <!-- <xacro:sensor_camera_macro
     namespace="${namespace}/camera_sensor"
     parent_link="base_link"
     enable_ground_truth="true"
-  >
-    <origin xyz="0.073 0.0 0.085" rpy="0.0 0.0 0.0" /> <!--  this origin need to be changed cuz it might be not good on the quadrotor but at least the propellers does not appear in the scene :D-->
-  </xacro:sensor_camera_macro>
+  >-->
+    <!--<origin xyz="0.073 0.0 0.085" rpy="0.0 0.0 0.0" />--> <!--  this origin need to be changed cuz it might be not good on the quadrotor but at least the propellers does not appear in the scene :D-->
+<!--  </xacro:sensor_camera_macro>-->
   
    <!-- Mount a Kinect sensor under IRIS (NOT WORKING) -->
  <!-- <xacro:kinect_macro
