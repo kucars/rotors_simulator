@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+  Copyright 2015 Fadri Furrer, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Michael Burri, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Mina Kamel, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Janosch Nikolic, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Markus Achtelik, ASL, ETH Zurich, Switzerland
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot name="iris" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="pi" value="3.14159265359" />
+  <!-- Instantiate firefly with a generic odometry sensor. -->
+  <xacro:include filename="$(find rotors_description)/urdf/iris_generic_odometry_sensor.gazebo" />
+  <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
+  
+  <!--xacro:hokuyo_laser namespace="${namespace}" parent_link="base_link">
+    <origin xyz="0.0 0.0 0.075" rpy="0.0 0.0 0.0" />
+  </xacro:hokuyo_laser-->
+  
+  <!-- Hokuyo UTM-30LX mounted above quadrotor body -->
+  <xacro:include filename="$(find rotors_description)/urdf/hokuyo_utm30lx.urdf.xacro" />
+  <xacro:hokuyo_utm30lx name="laser0" parent="base_link" ros_topic="scan" update_rate="40" ray_count="1081" min_angle="-135" max_angle="135">
+    <origin xyz="0.0 0.0 0.075" rpy="0 0 0"/>
+  </xacro:hokuyo_utm30lx>
+    
+  <!-- Mount a Xtion sensor under IRIS  -->
+  <!--xacro:sensor_asus_xtion_macro namespace="${namespace}/xtion_sensor"  parent_link="base_link" enable_ground_truth="true">
+    <origin xyz="0.0 0.022 -0.055" rpy="0 0.093 0" />
+  </xacro:sensor_asus_xtion_macro-->
+
+  <!-- Downward facing camera -->
+  <xacro:include filename="$(find rotors_description)/urdf/generic_camera.urdf.xacro" />
+  <xacro:generic_camera name="downward_cam" parent="base_link" ros_topic="camera/image" cam_info_topic="camera/camera_info" update_rate="20" res_x="640" res_y="480" image_format="L8" hfov="100">
+    <origin xyz="0.0 0.0 -0.046" rpy="0 ${M_PI/2} 0"/>
+  </xacro:generic_camera>
+ 
+</robot>

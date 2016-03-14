@@ -23,7 +23,7 @@
   <xacro:property name="pi" value="3.14159265359" />
   <!-- Instantiate firefly with a generic odometry sensor. -->
   <xacro:include filename="$(find rotors_description)/urdf/iris_generic_odometry_sensor.gazebo" />
-
+  
   <!-- Mount a VI-sensor in front of the Firefly. -->
   <xacro:vi_sensor_macro
     namespace="${namespace}/vi_sensor"
@@ -32,7 +32,7 @@
     enable_depth="true"
     enable_ground_truth="true"
   >
-    <origin xyz="0.0 0.0 0.075" rpy="0.0 -0.5 0.0" />
+    <origin xyz="0.1 0.0 -0.03" rpy="0.0 0.1 0.0" />
   </xacro:vi_sensor_macro>
   
    <!-- Mount a Xtion sensor under IRIS  -->
