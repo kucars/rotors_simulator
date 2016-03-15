@@ -19,20 +19,20 @@
   limitations under the License.
 -->
 
-<robot name="iris" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="$(arg name)" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:property name="pi" value="3.14159265359" />
   <!-- Instantiate firefly with a generic odometry sensor. -->
-  <xacro:include filename="$(find rotors_description)/urdf/iris_generic_odometry_sensor.gazebo" />
+  <xacro:include filename="$(find rotors_description)/urdf/ardrone_generic_odometry_sensor.gazebo" />
   <xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
   
   <!--xacro:hokuyo_laser namespace="${namespace}" parent_link="base_link">
-    <origin xyz="0.0 0.0 0.075" rpy="0.0 0.0 0.0" />
+    <origin xyz="0.20 0.0 -0.00" rpy="0.0 ${M_PI/2} 0.0" />
   </xacro:hokuyo_laser-->
   
   <!-- Hokuyo UTM-30LX mounted above quadrotor body -->
   <!--xacro:include filename="$(find rotors_description)/urdf/hokuyo_utm30lx.urdf.xacro" />
   <xacro:hokuyo_utm30lx name="laser0" parent="base_link" ros_topic="scan" update_rate="40" ray_count="1081" min_angle="-135" max_angle="135">
-    <origin xyz="0.0 0.0 0.075" rpy="0 0 0"/>
+    <origin xyz="0.0 0.0 0.085" rpy="0 0 0"/>
   </xacro:hokuyo_utm30lx-->
     
   <!-- Mount a Xtion sensor under IRIS  -->
@@ -43,7 +43,7 @@
   <!-- Downward facing camera -->
   <xacro:include filename="$(find rotors_description)/urdf/generic_camera.urdf.xacro" />
   <xacro:generic_camera name="downward_cam" parent="base_link" ros_topic="camera/image" cam_info_topic="camera/camera_info" update_rate="20" res_x="640" res_y="480" image_format="L8" hfov="100">
-    <origin xyz="0.0 0.0 -0.046" rpy="0 ${M_PI/2} 0"/>
+    <origin xyz="0.0 0.0 -0.020" rpy="0 ${M_PI/2} 0"/>
   </xacro:generic_camera>
  
 </robot>
