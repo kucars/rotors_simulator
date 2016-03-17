@@ -5,11 +5,11 @@
   <arg name="enable_logging" default="false"/>
   <arg name="enable_ground_truth" default="true"/>
   <arg name="debug" default="false"/>
-  <arg name="ns" default="iris"/>
+  <arg name="ns" default="multi_iris"/>
   <arg name="log_file" default="$(arg ns)"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find rotors_gazebo)/worlds/indoor_gesture.world"/>
+    <arg name="world_name" value="$(find rotors_gazebo)/worlds/basic.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="headless" value="$(arg headless)"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -21,8 +21,8 @@
         <arg name="enable_logging" value="$(arg enable_logging)" />
         <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
         <arg name="log_file" value="$(arg log_file)"/>
-        <arg name="x" value="-13.0"/>
-        <arg name="y" value="-8.5"/>
+        <arg name="x" value="0.0"/>
+        <arg name="y" value="0.0"/>
       </include>
       <arg name="fcu_url" default="udp://localhost:14560@localhost:14565" />
       <include file="$(find mavros)/launch/px4.launch">
@@ -33,6 +33,27 @@
      <arg name="ns" value="iris"/>
    </include>   
       
+   
+    <group ns="iris2">
+      <include file="$(find rotors_gazebo)/launch/spawn_iris.launch">
+	<arg name="name" value="iris2" />
+        <arg name="model" value="$(find rotors_description)/urdf/iris_gesture_sensors.gazebo" />
+        <arg name="enable_logging" value="$(arg enable_logging)" />
+        <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
+        <arg name="log_file" value="$(arg log_file)"/>
+        <arg name="x" value="-10.0"/>
+        <arg name="y" value="-8.5"/>
+	
+      </include>
+      <arg name="fcu_url" default="udp://localhost:14580@localhost:14585" />
+      <include file="$(find mavros)/launch/px4.launch">
+        <arg name="fcu_url" value="$(arg fcu_url)" />
+      </include>
+   </group>
+   <include file="$(find rotors_gazebo)/launch/iris_2.launch">
+     <arg name="ns" value="iris2"/>
+   </include>   
+   
    <group ns="ardrone">
       <include file="$(find rotors_gazebo)/launch/spawn_ardrone.launch">
         <arg name="model" value="$(find rotors_description)/urdf/ardrone_base.xacro" />
