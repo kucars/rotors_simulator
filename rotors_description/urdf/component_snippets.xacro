@@ -593,7 +593,7 @@
       </geometry>
       </collision>
       <inertial>
-        <mass value="0.170" />
+        <mass value="0.000170" />
         <origin xyz="0 0 0" />
         <inertia ixx="0.001152600" ixy="0.0" ixz="0.0"
                  iyy="0.000148934" iyz="0.0"
@@ -880,7 +880,7 @@
     </gazebo>
   </xacro:macro>
   <!-- trial kinect -->
-<!--   <xacro:macro name="kinect_macro" params="namespace parent_link">   
+ <!--xacro:macro name="kinect_macro" params="namespace parent_link">   
   <gazebo>
 <include>
         <uri>model://kinect</uri>
@@ -934,6 +934,6 @@
         </plugin>
       </sensor>
 </gazebo>
-   </xacro:macro> -->
-  
+   </xacro:macro> 
+  -->
 </robot>
