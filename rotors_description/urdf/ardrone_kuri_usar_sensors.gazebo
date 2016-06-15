@@ -41,8 +41,6 @@
  <xacro:realsense_camera name="uav_1" parent="base_link">
     <origin xyz="0.1 -0.022 -0.055" rpy="0 0.093 0"/>
   </xacro:realsense_camera>
-
-
 <!--
 
   <xacro:sensor_asus_xtion_macro name="rgbd_cam" namespace="uav_1" parent_link="base_link">
@@ -64,7 +62,5 @@
     <origin xyz="0 0 0.05" rpy="0 0 0"/>
   </xacro:flir_a35_camera>
 
- <xacro:flir_a35_camera name="thermal_cam21" parent="base_link">
-    <origin xyz="-0.20 0 -0.02" rpy="0 ${M_PI/2} 0"/>
-  </xacro:flir_a35_camera>
+
 </robot>
